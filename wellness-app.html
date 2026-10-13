@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redesigning a Wellness App | Darrien Staton</title>
+  <meta name="description" content="Case study by Darrien Staton, Senior Product Designer: a UX audit and redesign of the Dooable Health coaching app.">
+  <meta name="theme-color" content="#F1F3F6">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the case study</a>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="logo" href="index.html" aria-label="Darrien Staton, home"><img src="images/dare-logo.png" alt="Dare"></a>
+      <nav aria-label="Main"><ul>
+        <li><a href="index.html#work">Work</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#connect">Connect</a></li>
+      </ul></nav>
+    </header>
+    <main id="main">
+      <a class="back" href="index.html#work"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8H2M7 3L2 8l5 5"/></svg>All work</a>
+
+      <div class="bento">
+        <section class="tile hero s7" aria-labelledby="title">
+          <h1 id="title">Redesigning a Wellness App</h1>
+          <dl class="facts">
+            <div><dt>Role</dt><dd>Lead UX/UI Designer, Research</dd></div>
+            <div><dt>Client</dt><dd>Dooable Health</dd></div>
+            <div><dt>Scope</dt><dd>UX audit and redesign</dd></div>
+            <div><dt>Platform</dt><dd>Web app and mobile</dd></div>
+          </dl>
+        </section>
+        <div class="tile tile--photo s5"><img src="images/dooable-hero.webp" alt="Dooable logo, a pink speech bubble with a lowercase d above the word dooable and the tagline Good for your health, over a faded photo of a person doing yoga on rocks." width="1200" height="800"></div>
+      </div>
+
+      <div class="bento" style="margin-top: var(--gap)">
+        <section class="tile s12" aria-labelledby="intro">
+          <h2 id="intro">Intro</h2>
+          <div class="stack"><p>Dooable Health is a team of nationally board-certified health coaches who seek to help companies and individuals achieve their health goals.</p><p>The Dooable health app is an integrated tool that complements the coaching provided by the Dooable health staff. It&#x27;s a platform for recording health behavior progress, as well as a means of communication with the coach. The app also contains extensive lessons on eating, movement, and living well.</p><p>Dooable found their customers had challenges navigating their existing web app and wanted to improve the user experience and overall design of their client-facing interface. CrossComm was tasked with performing a UI/UX audit on the existing app, then designing a new user experience that better serves the goals and functions of the app.</p></div>
+        </section>
+      </div>
+
+      <section aria-labelledby="goals">
+        <div class="section-head"><h2 id="goals">Customer goals</h2></div>
+        <div class="bento card-grid"><div class="tile s6"><h3>Boost user engagement</h3><p>The client wants us to boost user engagement, cultivate a sense of community, and motivate users to complete their assessments. These assessments are crucial for improving the user experience and providing coaches with valuable insights to offer assistance.</p></div><div class="tile s6"><h3>Increase coaching sessions</h3><p>Scheduling and messaging are the most crucial features. It should be easier for clients to connect with their coach. While clients can access resources and content, sessions are the primary value of the application.</p></div><div class="tile s6"><h3>Improve the coach&#x27;s experience</h3><p>Coaches rely heavily on the interface to assist their clients. The original application made it difficult for coaches to see what their clients visit, upload content, and navigate the interface.</p></div><div class="tile s6"><h3>Enhance the appearance</h3><p>Although functional, the app was initially developed without a focus on design and user experience. We need a more consistent identity and to reduce pain points for users.</p></div></div>
+      </section>
+
+      <section aria-labelledby="approach">
+        <div class="section-head"><h2 id="approach">Our approach</h2></div>
+        <div class="bento">
+          <article class="tile s7" aria-labelledby="audit">
+            <h3 id="audit">UX audit</h3>
+            <div class="stack"><p>A UX Audit, also known as a Usability Audit, looks for ways your current product succeeds or falls short of being user-centric. To kick off the audit, we interviewed stakeholders and coaches to learn about the problems they were facing with their current web app. Once we understood their business goals, we conducted a heuristic evaluation of the entire app. We looked for trends, tendencies, and flaws that hindered the overall user experience. In addition, we conducted a competitive analysis, developed user personas and customer journeys, and provided a detailed report highlighting potential pain points and ideal areas of improvement.</p></div>
+          </article>
+          <nav class="tile toc s5" aria-labelledby="toc-title">
+            <h3 id="toc-title">What the audit report covered</h3>
+            <ol>
+              <li><a href="#competitive"><span class="toc__n">01</span>Competitive analysis</a></li>
+              <li><a href="#personas"><span class="toc__n">02</span>Personas</a></li>
+              <li><a href="#journeys"><span class="toc__n">03</span>Journey maps</a></li>
+              <li><a href="#findings"><span class="toc__n">04</span>Summary of findings</a></li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="bento" style="margin-top: var(--gap)">
+          <div class="tile s12" id="competitive">
+            <h3>Competitive analysis</h3>
+            <p>We studied competitor strengths and weaknesses to identify opportunities for improvement, as well as design takeaways. By conducting a competitive analysis, we determined possible features that could help Dooable stay ahead of design trends and the competition.</p>
+          </div>
+          <article class="tile area s6" aria-labelledby="comp1">
+            <div class="area__media"><img src="images/dooable-competitor-1.webp" alt="Screens from a competitor app: a My Plan checklist for the day, a daily reward prompt, and a workout timer reading Next Up." width="393" height="497" loading="lazy"></div>
+            <div class="area__body"><h3 id="comp1">Competitor 1</h3><p>Personalized workout and nutrition plans supported by real human coaches, comprehensive progress tracking, and cognitive behavioral therapy based practice tips.</p><h4>Main design takeaways</h4><ul class="dots"><li>Long onboarding process</li><li>Guided lessons and introduction material</li><li>Quick access to coaches via messaging</li><li>Bottom navigation</li><li>Able to decide what areas of health and wellness to focus on</li><li>Daily reward center and trophies for achievements</li><li>Easy to follow workout plans</li><li>FAQ page for quick reference and help on how to user can benefit from their app</li></ul></div></article>
+          <article class="tile area s6" aria-labelledby="comp2">
+            <div class="area__media"><img src="images/dooable-competitor-2.webp" alt="Screens from a competitor app in a dark color palette: a meditation home screen with an upgrade banner, and a My Coaching screen asking what kind of coach you are looking for." width="384" height="498" loading="lazy"></div>
+            <div class="area__body"><h3 id="comp2">Competitor 2</h3><p>Digital health platform offering hundreds of coaches for 1:1 and group coaching, tools for team wellness such as team challenges, and over 3,000 on demand wellness sessions for holistic well being.</p><h4>Main design takeaways</h4><ul class="dots"><li>Short onboarding</li><li>Dark color palette</li><li>News feed like home screen</li><li>Bottom navigation</li><li>Very pushy with selling sessions</li><li>Ability to see available sessions for coaches before selecting a coach or committing to a plan</li><li>Ability to view recorded sessions for individual coaches prior to commitment (try before you buy)</li><li>Ability to find coaches based on date/time</li></ul></div></article>
+        </div>
+
+        <div class="bento" style="margin-top: var(--gap)">
+          <div class="tile s12">
+            <h3>Personas and journey maps</h3>
+            <div class="stack"><p>Researching and understanding user motivations is an integral part of designing a successful product. To develop the personas and journey maps, we gathered information about potential customers from interviews with Dooable&#x27;s health coaches, directors, and key executives. They represent the behaviors, motivators, frustrations, brand preferences, and goals of Dooable&#x27;s users.</p><p>Journey maps depict scenarios and interactions based on user expectations and goals. It helps us understand how the customer will navigate and use the app. We also use them as a guide when redesigning the interface, which informs the decisions we make when creating a product.</p></div>
+          </div>
+          <div class="tile media s6" id="personas"><figure class="shot shot--framed"><img src="images/dooable-persona-jessica.webp" alt="Persona card for Jessica Wright, a 42 year old project manager in Durham, NC, with her bio, motivations, frustrations, goals, favorite brands, personality scales, and interests." width="833" height="646" loading="lazy"><figcaption>Persona: Jessica Wright</figcaption></figure></div>
+          <div class="tile media s6"><figure class="shot shot--framed"><img src="images/dooable-persona-bryan.webp" alt="Persona card for Bryan Wilson, a 26 year old data analyst in Raleigh, NC, with his bio, motivations, frustrations, goals, favorite brands, personality scales, and interests." width="833" height="646" loading="lazy"><figcaption>Persona: Bryan Wilson</figcaption></figure></div>
+          <div class="tile media s12" id="journeys"><figure class="shot shot--framed"><img src="images/dooable-journey-jessica.webp" alt="Journey map for Jessica, who wants to book a coaching appointment, showing five steps from logging in to receiving a confirmation, plus insights about combining scheduling and messaging." width="1096" height="850" loading="lazy"><figcaption>Journey map: booking a coaching session</figcaption></figure></div>
+          <div class="tile media s12"><figure class="shot shot--framed"><img src="images/dooable-journey-bryan.webp" alt="Journey map for Bryan, who wants to submit proof of a 5k to earn an employer incentive, showing five steps from logging in to receiving a confirmation message." width="981" height="761" loading="lazy"><figcaption>Journey map: submitting a 5k for an incentive</figcaption></figure></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="findings">
+        <div class="section-head"><h2 id="findings">Audit findings</h2></div>
+        <div class="bento"><div class="tile s12"><div class="stack"><p>After completing the UX Audit, we delivered a detailed report with our findings and recommendations. The detailed audit report included actionable steps and insights that were critical in redesigning Dooable&#x27;s app.</p></div></div></div>
+        <h3 class="sr-only">Summary of findings</h3>
+        <div class="tile board" style="margin-top: var(--gap)"><div class="notes"><div class="note n-onb"><h3>Onboarding</h3><div class="stack"><p>A noticeable difference between apps is the initial onboarding process. Some apps will ask a ton of questions before you ever see the home screen. Other apps will ask a few things and then you are on your own.</p><p>Our suggestion is to land somewhere in the middle: offer an onboarding experience that the user can do at their own pace. This allows new users to gain access to the app to see if it is what they are looking for while also ensuring users that are committed have a path to follow to avoid confusion/pain points down the road.</p></div></div><div class="note n-pal"><h3>Color palette</h3><div class="stack"><p>Most of the apps used a light color palette with a clean design style. The light colors evoke a more positive feeling. The one app that does utilize a dark color palette does have a strong focus on sleep. If sleep wellness becomes a focus then it is something that can be considered.</p></div></div><div class="note n-nav"><h3>Bottom navigation</h3><div class="stack"><p>All the apps embraced a bottom navigation that offered quick access to the main section with an expandable menu to access additional functionality.</p></div></div><div class="note n-today"><h3>Focus on today</h3><div class="stack"><p>All the apps focus the user on what they need to accomplish today; not distracting the users with other tasks. They also reference the bigger picture or goals for motivational purposes; showing progress or reminding the user what they are aiming to accomplish.</p></div></div><div class="note n-side"><h3>Side scrolling</h3><div class="stack"><p>Most apps utilize side scrolling in their news feeds in order to expose more content to users.</p></div></div><div class="note n-cond"><h3>Condensing content</h3><div class="stack"><p>Related to the navigation, instead of having a large number of pages and making the app/site difficult to navigate on a mobile device, most apps condensed content into a small number of pages. The apps then used a variety of design techniques in order to guide the user toward more specific content.</p></div></div></div></div>
+      </section>
+
+      <section aria-labelledby="redesign">
+        <div class="section-head"><h2 id="redesign">Redesign</h2></div>
+        <div class="bento">
+          <div class="tile s12"><h3>Improved product</h3><div class="stack"><p>Based on our findings from the UX Audit, we created wireframes and mockups that reflected UX best practices and industry trends. We improved the navigation and created a better onboarding experience for their users. In addition, we simplified data heavy sections and reduced the amount of content on each screen. Utilizing Dooable&#x27;s established style guide, we introduced light colors and minimal design elements.</p></div></div>
+          <div class="tile media s12"><figure class="shot shot--framed"><img src="images/dooable-before-redesign.webp" alt="The original app on mobile: a coach page, a navigation menu, a workouts table, a workout video, a daily check-in grid, and a wheel of life chart." width="1600" height="501" loading="lazy"><figcaption>Before redesign</figcaption></figure></div>
+          <div class="tile media s12"><figure class="shot shot--framed"><img src="images/dooable-after-redesign.webp" alt="The redesigned app on phones: the login screen, the home screen with a prompt to meet with the coach, a workout list, daily reflections, and a self care assessment." width="1600" height="500" loading="lazy"><figcaption>After redesign</figcaption></figure></div>
+        </div>
+        <div style="margin-top: var(--gap)">
+        
+        <article class="bento" aria-labelledby="scr1" style="margin-bottom: var(--gap)">
+          <div class="tile s5"><h3 id="scr1">Home screen</h3><p>The redesign focused heavily on the home page. Based on user feedback, we opted for a simplified and branded layout emphasizing coaching sessions, which are essential to Dooable&#x27;s ability to assist clients. We included clear and compelling calls to action to engage users better. Furthermore, we created user-friendly pathways for accessing coaching articles and communicating with their coach.</p></div>
+          <div class="tile media s7"><div class="pair">
+            <figure class="shot shot--framed"><img src="images/dooable-home-desktop.webp" alt="Redesigned home screen on desktop with a highlighted Meet with my coach card, shortcuts for daily reflections, assessment, workouts and health vision, and a community feed." width="792" height="908" loading="lazy"></figure>
+            <figure class="shot shot--tall shot--framed"><img src="images/dooable-home-mobile.webp" alt="Redesigned home screen on mobile with a Meet with my coach card, the next workshop, and a daily affirmation." width="395" height="832" loading="lazy"></figure>
+          </div></div>
+        </article>
+        
+        <article class="bento flip" aria-labelledby="scr2" style="margin-bottom: var(--gap)">
+          <div class="tile s5"><h3 id="scr2">Coaching</h3><p>One of the key needs and features of Dooable revolves around the coach&#x27;s ability to message clients, provide resources, and offer guidance for all employees using the program. When designing the coaching tab, we aimed to centralize all coaching resources in one place. In the original app, resources were scattered, and users had trouble finding where to message their coaches or access notes from previous coaching sessions. In the redesign, we made these tasks easier and eliminated points of frustration.</p></div>
+          <div class="tile media s7"><div class="pair">
+            <figure class="shot shot--framed"><img src="images/dooable-coaching-desktop.webp" alt="Redesigned coaching page on desktop with the coach profile, scheduling and messaging buttons, a vision board, recent messages, and the latest coaching note." width="792" height="908" loading="lazy"></figure>
+            <figure class="shot shot--tall shot--framed"><img src="images/dooable-coaching-mobile.webp" alt="Redesigned coaching page on mobile with the coach profile and buttons to schedule a session, complete an assessment, send a message, and open coaching notes." width="395" height="832" loading="lazy"></figure>
+          </div></div>
+        </article>
+        
+        <article class="bento" aria-labelledby="scr3" style="margin-bottom: var(--gap)">
+          <div class="tile s5"><h3 id="scr3">Explore</h3><p>Dooable partners with companies to help employees lead healthier lives. While it is recommended, not all employees want to chat with a live coach. Dooable provides articles and resources that offer life-altering information and are easily accessible to employees. The Explore page allows employees to view lessons, articles, recipes, and global wellness information provided by coaches. The explore page can aid coaches during their sessions, but it can also be freely browsed by employees seeking wellness information.</p></div>
+          <div class="tile media s7"><div class="pair">
+            <figure class="shot shot--framed"><img src="images/dooable-explore-desktop.webp" alt="Redesigned Explore page on desktop with search, popular topic tags, and rows of lesson cards under Start Here, Eat Well, and Live Well." width="792" height="908" loading="lazy"></figure>
+            <figure class="shot shot--tall shot--framed"><img src="images/dooable-explore-mobile.webp" alt="Redesigned Explore page on mobile with search and a side scrolling row of lesson cards under Eat Well." width="395" height="832" loading="lazy"></figure>
+          </div></div>
+        </article>
+        
+        <article class="bento flip" aria-labelledby="scr4" style="margin-bottom: var(--gap)">
+          <div class="tile s5"><h3 id="scr4">Rewards</h3><p>To encourage employees to utilize Dooable&#x27;s resources, employers can offer rewards such as gift cards, HSA contributions, and reduced insurance payments. However, the original rewards design wasn&#x27;t very user-friendly. It heavily relied on stock photography and didn&#x27;t clearly indicate the employees&#x27; progress or what they had earned. During the redesign, we made the value of each reward clear. We introduced fun illustrations, vibrant colors, and a confetti animation that provides feedback and adds gamification to the employees&#x27; wellness achievements.</p></div>
+          <div class="tile media s7"><div class="pair">
+            <figure class="shot shot--framed"><img src="images/dooable-rewards-desktop.webp" alt="Redesigned Rewards page on desktop with a progress bar toward the current reward, point opportunities with illustrations, and completed opportunities." width="792" height="908" loading="lazy"></figure>
+            <figure class="shot shot--tall shot--framed"><img src="images/dooable-rewards-mobile.webp" alt="Rewards on mobile with a confetti celebration card reading Opportunity Completed for 5 Daily Checkins." width="395" height="832" loading="lazy"></figure>
+          </div></div>
+        </article>
+        
+        <article class="bento" aria-labelledby="scr5" style="margin-bottom: var(--gap)">
+          <div class="tile s5"><h3 id="scr5">Assessments</h3><p>Assessments and data visualization were critical in helping employees and coaches understand their wellness progress. The old designs did not inform the users how long the assessments would take or how many there were; the charts only had numbers and weren&#x27;t mobile-friendly. We used drop-downs to condense heavy information, added time to show the users how little effort was required to complete the assessment, and provided informative data visualizations.</p></div>
+          <div class="tile media s7"><div class="pair">
+            <figure class="shot shot--framed"><img src="images/dooable-assessments-desktop.webp" alt="Redesigned Assessments page on desktop with timed assessment buttons, a line chart of risk over time, risk levels by section, and a wheel of life chart." width="792" height="908" loading="lazy"></figure>
+            <figure class="shot shot--tall shot--framed"><img src="images/dooable-assessments-mobile.webp" alt="Baseline Assessment on mobile with a grid of symptoms rated from none to severe." width="395" height="832" loading="lazy"></figure>
+          </div></div>
+        </article>
+        </div>
+      </section>
+
+      <section class="tile thanks" style="margin-top: 40px" aria-labelledby="thanks">
+        <h2 id="thanks">Thank you</h2>
+        <div class="actions">
+          <a class="btn btn--solid" href="index.html#work"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8H2M7 3L2 8l5 5"/></svg>Back to all work</a>
+          <a class="btn" href="https://www.behance.net/darrienstaton1/" target="_blank" rel="noopener noreferrer">More work on Behance<span class="sr-only"> (opens in a new tab)</span><svg class="out" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a>
+        </div>
+      </section>
+    </main>
+    <footer>&copy; 2026 Darrien Staton</footer>
+  </div>
+</body>
+</html>

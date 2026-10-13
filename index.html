@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Darrien Staton</title>
+  <meta name="description" content="Darrien Staton | Product Designer">
+  <meta name="theme-color" content="#F1F3F6">
+  <meta property="og:title" content="Darrien Staton">
+  <meta property="og:description" content="Darrien Staton | Product Designer">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://darrienstaton.com">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F1F3F6;
+      --surface: #FFFFFF;
+      --ink: #12161C;
+      --muted: #475064;
+      --line: #DADFE6;
+      --accent: #1F4FD8;
+      --earth-red: #7C1B2A;
+      --on-red: #FAF1EA;
+      --chip: #EAEEF4;
+      --radius: 22px;
+      --gap: 16px;
+      --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+      --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--bg); scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.1; letter-spacing: -0.015em; }
+    p { margin: 0; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+    .skip {
+      position: absolute; left: 16px; top: -64px; z-index: 10;
+      background: var(--ink); color: #fff; padding: 12px 18px; border-radius: 12px;
+      font-weight: 600; text-decoration: none;
+    }
+    .skip:focus { top: 16px; }
+
+    /* header */
+    .site-header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .site-header .logo img { height: 40px; width: auto; }
+    .site-header nav ul { display: flex; gap: 4px; }
+    .site-header nav a {
+      display: inline-block; padding: 10px 16px; border-radius: 999px;
+      text-decoration: none; font-weight: 500; transition: background .2s ease, transform .2s ease;
+    }
+    .site-header nav a:hover { background: var(--surface); transform: translateY(-2px); }
+
+    /* bento grid */
+    .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gap); }
+    .s4 { grid-column: span 4; }
+    .s5 { grid-column: span 5; }
+    .s6 { grid-column: span 6; }
+    .s7 { grid-column: span 7; }
+    .s3 { grid-column: span 3; }
+    .s8 { grid-column: span 8; }
+    .s9 { grid-column: span 9; }
+    .s12 { grid-column: span 12; }
+    .tall { grid-row: span 2; }
+
+    .tile {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .tile h3 { font-size: 1.5rem; margin-bottom: 18px; }
+    .tile--night { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .tile--accent { background: var(--earth-red); border-color: var(--earth-red); color: var(--on-red); }
+    .tile--accent p { font-weight: 500; }
+
+    /* intro */
+    .intro { padding: 44px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
+    .intro h1 { font-size: clamp(2.4rem, 5.4vw, 3.6rem); font-weight: 800; }
+    .intro p { font-size: 1.2rem; max-width: 40em; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      min-height: 46px; padding: .6rem 1.3rem; border-radius: 999px;
+      font-weight: 600; text-decoration: none; border: 2px solid var(--ink);
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .btn svg { width: 16px; height: 16px; transition: transform .2s ease; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn:hover svg { transform: translate(2px, -2px); }
+    .btn--solid { background: var(--ink); color: #fff; }
+    .btn--solid:hover svg.down { transform: translateY(3px); }
+    .btn--light { background: var(--on-red); color: var(--ink); border-color: var(--on-red); }
+
+    /* portrait */
+    .fun { display: flex; flex-direction: column; gap: 14px; }
+    .fun__art { width: 100%; height: auto; margin-top: auto; }
+    .portrait { display: grid; place-items: center; padding: 24px; background: var(--chip); border-color: var(--chip); transform: rotate(-1.5deg); transition: transform .35s ease; }
+    .portrait:hover { transform: rotate(0deg) translateY(-4px); }
+    /* shown at about half the file's pixel size, so it stays sharp on high-density screens */
+    .portrait img { width: min(100%, 220px); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 10px 20px -10px rgba(18,22,28,.35); }
+
+    /* section headings */
+    .section-head { margin: 56px 0 20px; }
+    .section-head h2 { font-size: clamp(1.8rem, 3.4vw, 2.3rem); font-weight: 800; }
+
+    /* case study tiles */
+    .case { padding: 0; overflow: hidden; display: flex; flex-direction: column; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .case:hover { transform: translateY(-4px); border-color: var(--brand); box-shadow: 0 14px 30px -14px rgba(18,22,28,.35); }
+    .case--dss { --brand: #1A56FF; }
+    .case--dooable { --brand: #F42D58; }
+    .case--genesis { --brand: #0E4467; }
+    .case__media { overflow: hidden; background: var(--chip); }
+    .case__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; transition: transform .5s ease; }
+    .case:hover .case__media img { transform: scale(1.04); }
+    .case__body { padding: 24px 28px 28px; }
+    .case__body h3 { font-size: 1.4rem; margin-bottom: 10px; }
+    .case__body { flex: 1; }
+    .case__body p { color: var(--muted); }
+    .more { display: inline-flex; align-items: center; gap: .5rem; margin-top: 14px; font-weight: 600; }
+    .more svg { width: 16px; height: 16px; transition: transform .25s ease; }
+    .case:hover .more svg { transform: translateX(5px); }
+    .stretched { text-decoration: none; }
+    .stretched::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+    .stretched:focus-visible { outline: none; }
+    .stretched:focus-visible::after { box-shadow: inset 0 0 0 4px var(--accent), inset 0 0 0 7px #fff; }
+
+    /* process */
+    .steps { display: grid; gap: 16px; counter-reset: step; }
+    .steps li { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; counter-increment: step; }
+    .steps li::before {
+      content: counter(step);
+      display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
+      background: var(--ink); color: #fff; font-family: var(--display); font-weight: 700;
+    }
+    .steps strong { display: block; font-family: var(--display); font-size: 1.1rem; }
+    .steps span { color: var(--muted); }
+
+    /* lists */
+    .plain li { padding: 11px 0; border-bottom: 1px solid var(--line); }
+    .plain li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .plain li:first-child { padding-top: 0; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chips li {
+      padding: 9px 16px; border-radius: 999px; background: var(--chip); font-weight: 500;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .chips li:hover { transform: translateY(-3px) rotate(-2deg); background: #dfe5ee; }
+    /* a little color on some chips: solid wine, soft rose, or the default gray */
+    .chips li:nth-child(2), .chips li:nth-child(6), .chips li:nth-child(9) { background: #E2BCBF; color: #4F0C18; }
+    .chips li:nth-child(2):hover, .chips li:nth-child(6):hover, .chips li:nth-child(9):hover { background: #D8ABAF; }
+    .chips li:nth-child(3), .chips li:nth-child(8), .chips li:nth-child(10) { background: #F0DCDD; color: #5E0E1B; }
+    .chips li:nth-child(3):hover, .chips li:nth-child(8):hover, .chips li:nth-child(10):hover { background: #E7C8CB; }
+    .linklist li { padding: 9px 0; border-bottom: 1px solid var(--line); }
+    .linklist li:last-child { border-bottom: 0; }
+    .linklist a {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      text-decoration: none; font-weight: 500; color: var(--accent);
+    }
+    .linklist a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .linklist svg { width: 14px; height: 14px; flex: none; transition: transform .2s ease; }
+    .linklist a:hover svg { transform: translate(2px, -2px); }
+
+    iframe { display: block; width: 100%; height: 352px; border: 0; border-radius: 14px; }
+    .spotify-link { margin-top: 16px; }
+
+    .connect { display: flex; flex-direction: column; gap: 16px; }
+    .connect p { font-size: 1.15rem; }
+    .connect .actions { flex-direction: column; align-items: flex-start; margin-top: 4px; }
+
+    footer { padding: 40px 0 56px; text-align: center; color: var(--muted); font-size: .95rem; }
+
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .tile--accent a:focus-visible, .tile--night a:focus-visible { outline-color: #fff; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    [id] { scroll-margin-top: 16px; }
+
+    /* tablet and phone */
+    @media (max-width: 960px) {
+      .s3, .s4, .s5, .s6, .s7, .s8, .s9 { grid-column: span 12; }
+      .tall { grid-row: auto; }
+      .portrait { order: -1; padding: 20px; transform: rotate(-1deg); }
+      .portrait img { width: 180px; height: auto; }
+      .intro { padding: 32px 28px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { padding: 0 14px; }
+      .site-header .logo img { height: 34px; }
+      .site-header nav a { padding: 10px 11px; }
+      .tile { padding: 26px 22px; }
+      .intro { padding: 28px 22px; }
+      .case__body { padding: 20px 22px 24px; }
+    }
+
+
+    /* floating board game chips (enhancement; static wrap without JS or with reduced motion) */
+    .chips.float-ready { position: relative; padding: 14px; gap: 12px; }
+    .chips.is-floating li { position: absolute; top: 0; left: 0; margin: 0; will-change: transform; transition: background .2s ease; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .portrait, .portrait:hover { transform: none; }
+      .case:hover, .btn:hover, .chips li:hover, .site-header nav a:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#work">Skip to selected work</a>
+
+  <div class="wrap">
+    <header class="site-header">
+      <a class="logo" href="#top" aria-label="Darrien Staton, home"><img src="images/dare-logo.png" alt="Dare"></a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#connect">Connect</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="top">
+
+      <div class="bento">
+        <section class="tile intro s9" aria-labelledby="name">
+          <h1 id="name">Darrien Staton, CPACC</h1>
+          <p>Hi there! I'm a <strong>Senior Product Designer</strong> with 9 years of experience, turning research into product strategy for B2B and B2C products, from e-commerce to healthcare. I'm CPACC certified, so accessibility shapes my decisions from the start, not as a fix at the end. At Captura, I work with Product and Engineering to design tools for photography studios and the families they serve, and I use AI to move faster, from exploring ideas to shipping UI and accessibility improvements myself. Previously, I designed AR/VR apps and healthcare tools focused on wellness and cancer prevention.</p>
+          <div class="actions">
+            <a class="btn btn--solid" href="#work">
+              See selected work
+              <svg class="down" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v11M3 8.5l5 5 5-5"/></svg>
+            </a>
+            <a class="btn" href="https://www.behance.net/darrienstaton1/" target="_blank" rel="noopener noreferrer">
+              More work on Behance<span class="sr-only"> (opens in a new tab)</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg>
+            </a>
+          </div>
+        </section>
+
+        <div class="tile portrait s3">
+          <img src="images/headshot.jpg" alt="Darrien smiling in a black t-shirt." width="495" height="495">
+        </div>
+      </div>
+
+      <section id="work" aria-labelledby="work-title">
+        <div class="section-head"><h2 id="work-title">Selected work</h2></div>
+        <div class="bento">
+
+          <article class="tile case case--dss s4">
+            <div class="case__media"><img src="images/thumb-scalable-systems.png" alt="" width="1500" height="1000"></div>
+            <div class="case__body">
+              <h3><a class="stretched" href="scalable-systems.html">Designing Scalable Systems</a></h3>
+              <p>A curated snapshot of nearly three years designing long-lived product systems for a SaaS platform that serves professional photography studios and their customers.</p>
+              <span class="more" aria-hidden="true">Read case study
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+              </span>
+            </div>
+          </article>
+
+          <article class="tile case case--dooable s4">
+            <div class="case__media"><img src="images/thumb-dooable.jpg" alt="" width="1500" height="1000" loading="lazy"></div>
+            <div class="case__body">
+              <h3><a class="stretched" href="wellness-app.html">Redesigning a Wellness App</a></h3>
+              <p>A UX audit and redesign of a health coaching app, built to boost engagement and make it easier to connect with a coach.</p>
+              <span class="more" aria-hidden="true">Read case study
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+              </span>
+            </div>
+          </article>
+
+          <article class="tile case case--genesis s4">
+            <div class="case__media"><img src="images/thumb-genesis.jpg" alt="" width="1500" height="1000" loading="lazy"></div>
+            <div class="case__body">
+              <h3><a class="stretched" href="juror-portal.html">Genesis Juror Portal</a></h3>
+              <p>A redesign of the public-facing juror experience, made clearer, more accessible, and responsive.</p>
+              <span class="more" aria-hidden="true">Read case study
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+              </span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <div class="section-head"><h2 id="about-title">More about me</h2></div>
+        <div class="bento">
+
+          <section class="tile s7" aria-labelledby="process-title">
+            <h3 id="process-title">Design process</h3>
+            <p style="margin-bottom:22px">My process is grounded in curiosity: I dig into the why, design thoughtfully, and collaborate closely to make sure what we ship truly works for users.</p>
+            <ol class="steps">
+              <li><div><strong>Understand</strong><span>Explore the problem, its sources, and who it affects.</span></div></li>
+              <li><div><strong>Explore</strong><span>Research patterns and spark solution ideas.</span></div></li>
+              <li><div><strong>Design</strong><span>Create, test, and refine thoughtful solutions.</span></div></li>
+              <li><div><strong>Deliver</strong><span>Ensure clean handoff and support development.</span></div></li>
+              <li><div><strong>Learn</strong><span>Gather feedback and monitor real-world impact.</span></div></li>
+            </ol>
+          </section>
+
+          <section class="tile s5 fun" aria-labelledby="fun-title">
+            <h3 id="fun-title">Fun facts</h3>
+            <p>When I'm not in front of my computer, you'll find me geeking out over the latest tech trends, collecting board games, vibing to music, or spending quality time with my wife. I'm a huge foodie, love fitness and camping, and am determined to revive my longboarding career (lol). Oh, and I'm always capturing the world through my camera lens.</p>
+            <img class="fun__art" src="images/fun-facts-camp.webp" alt="Illustrated campsite by a lake at sunset, with an orange tent, camp chairs, a campfire, a camera, a Jenga tower and playing cards, a longboard, and hiking shoes." width="1000" height="667" loading="lazy">
+          </section>
+
+          <section class="tile s4" aria-labelledby="books-title">
+            <h3 id="books-title">Books I recommend</h3>
+            <ul class="plain">
+              <li>The Design of Everyday Things by Don Norman</li>
+              <li>Don't Make Me Think by Steve Krug</li>
+              <li>Draplin Design Co.: Pretty Much Everything by Aaron Draplin</li>
+              <li>Laws of UX by Jon Yablonski</li>
+              <li>Reality Is Broken by Jane McGonigal</li>
+            </ul>
+          </section>
+
+          <section class="tile s4" aria-labelledby="games-title">
+            <h3 id="games-title">Favorite board games</h3>
+            <ul class="chips">
+              <li>Monopoly</li>
+              <li>Catan</li>
+              <li>7 Wonders Duel</li>
+              <li>Munchkin</li>
+              <li>Uno</li>
+              <li>Spades</li>
+              <li>Tunk</li>
+              <li>Sequence</li>
+              <li>Splendor</li>
+              <li>Sushi Go</li>
+              <li>Trouble</li>
+            </ul>
+          </section>
+
+          <section class="tile s4" aria-labelledby="yt-title">
+            <h3 id="yt-title">YouTubers to watch</h3>
+            <ul class="linklist">
+              <li><a href="https://www.youtube.com/@SharonOnyinye/" target="_blank" rel="noopener noreferrer">Sharon Onyinye<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@mkbhd/" target="_blank" rel="noopener noreferrer">Marques Brownlee<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@AJSmart/" target="_blank" rel="noopener noreferrer">AJ&amp;Smart<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@RachelHow/" target="_blank" rel="noopener noreferrer">Rachel How<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@Mizko/" target="_blank" rel="noopener noreferrer">Mizko<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@AlienaCai/" target="_blank" rel="noopener noreferrer">Aliena Cai<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@chunbuns/" target="_blank" rel="noopener noreferrer">chunbuns<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a></li>
+              <li><a href="https://www.youtube.com/@thefutur/" target="_blank" rel="noopener noreferrer">The Futur<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a></li>
+            </ul>
+          </section>
+
+          <section class="tile tile--night s7" aria-labelledby="playlist-title">
+            <h3 id="playlist-title">My lofi UX/UI playlist</h3>
+            <iframe title="My Lofi UX/UI playlist on Spotify" src="https://open.spotify.com/embed/playlist/6mcJ4eX744HEFd7J6AeA9e?utm_source=generator&amp;si=a37f7be60f414571" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <a class="btn btn--light spotify-link" href="https://open.spotify.com/playlist/6mcJ4eX744HEFd7J6AeA9e?si=ZIV6PWeASYWnZGyinq_YZw" target="_blank" rel="noopener noreferrer">Open on Spotify<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a>
+          </section>
+
+          <section id="connect" class="tile tile--accent connect s5" aria-labelledby="connect-title">
+            <h3 id="connect-title" style="margin-bottom:0">Let's connect</h3>
+            <p>I'm always excited to meet new people and share ideas, so feel free to connect!</p>
+            <div class="actions">
+              <a class="btn btn--light" href="https://www.linkedin.com/in/darrien/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a>
+              <a class="btn btn--light" href="https://www.behance.net/darrienstaton1/" target="_blank" rel="noopener noreferrer">Behance<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a>
+              <a class="btn btn--light" href="https://darrienstaton.substack.com/" target="_blank" rel="noopener noreferrer">Substack<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a>
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer>&copy; 2026 Darrien Staton</footer>
+  </div>
+<script>
+(function () {
+  var field = document.querySelector('.chips');
+  if (!field) return;
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var items = [], raf = 0, onScreen = true, pointer = null, resizeTimer = 0, lastW = 0;
+  var DRIFT = 5, PUSH = 10, RADIUS = 110, LIMIT = 12;
+
+  function setup() {
+    teardown();
+    if (mq.matches) return;
+    field.classList.add('float-ready');
+    var lis = [].slice.call(field.children);
+    var spots = lis.map(function (li) { return { x: li.offsetLeft, y: li.offsetTop, w: li.offsetWidth, h: li.offsetHeight }; });
+    field.style.height = field.offsetHeight + 'px';
+    field.classList.add('is-floating');
+    items = lis.map(function (li, i) {
+      li.style.transform = 'translate(' + spots[i].x + 'px,' + spots[i].y + 'px)';
+      return {
+        el: li, hx: spots[i].x, hy: spots[i].y, w: spots[i].w, h: spots[i].h, ox: 0, oy: 0,
+        p1: Math.random() * 6.28, p2: Math.random() * 6.28,
+        s1: 0.00035 + Math.random() * 0.0003, s2: 0.0003 + Math.random() * 0.0003
+      };
+    });
+    lastW = field.offsetWidth;
+    start();
+  }
+
+  function teardown() {
+    stop();
+    items.forEach(function (it) { it.el.style.transform = ''; });
+    items = [];
+    field.classList.remove('is-floating', 'float-ready');
+    field.style.height = '';
+  }
+
+  function frame(now) {
+    raf = requestAnimationFrame(frame);
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      var tx = Math.sin(now * it.s1 + it.p1) * DRIFT;
+      var ty = Math.cos(now * it.s2 + it.p2) * DRIFT;
+      if (pointer) {
+        var dx = it.hx + it.w / 2 - pointer.x, dy = it.hy + it.h / 2 - pointer.y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if (d < RADIUS) {
+          var f = 1 - d / RADIUS, k = (d || 1);
+          tx += (dx / k) * f * PUSH;
+          ty += (dy / k) * f * PUSH;
+        }
+      }
+      tx = Math.max(-LIMIT, Math.min(LIMIT, tx));
+      ty = Math.max(-LIMIT, Math.min(LIMIT, ty));
+      it.ox += (tx - it.ox) * 0.08;
+      it.oy += (ty - it.oy) * 0.08;
+      it.el.style.transform = 'translate(' + (it.hx + it.ox).toFixed(2) + 'px,' + (it.hy + it.oy).toFixed(2) + 'px)';
+    }
+  }
+  function start() { if (!raf && items.length && onScreen && !document.hidden) raf = requestAnimationFrame(frame); }
+  function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+
+  field.addEventListener('pointermove', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    var r = field.getBoundingClientRect();
+    pointer = { x: e.clientX - r.left, y: e.clientY - r.top };
+  });
+  field.addEventListener('pointerleave', function () { pointer = null; });
+  document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      onScreen = entries[0].isIntersecting;
+      onScreen ? start() : stop();
+    }).observe(field);
+  }
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      if (!field.classList.contains('is-floating') || Math.abs(field.offsetWidth - lastW) > 1) setup();
+    }, 150);
+  });
+  if (mq.addEventListener) mq.addEventListener('change', setup);
+  var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  ready.then(setup);
+})();
+</script>
+</body>
+</html>

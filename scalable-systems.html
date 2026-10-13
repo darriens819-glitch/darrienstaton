@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Designing Scalable Systems | Darrien Staton</title>
+  <meta name="description" content="Case study by Darrien Staton, Senior Product Designer: designing long-lived product systems for a SaaS platform that serves professional photography studios.">
+  <meta name="theme-color" content="#F1F3F6">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="case.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the case study</a>
+
+  <div class="wrap">
+    <header class="site-header">
+      <a class="logo" href="index.html" aria-label="Darrien Staton, home"><img src="images/dare-logo.png" alt="Dare"></a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="index.html#work">Work</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#connect">Connect</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <a class="back" href="index.html#work"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8H2M7 3L2 8l5 5"/></svg>All work</a>
+
+      <div class="bento">
+        <section class="tile hero s7" aria-labelledby="title">
+          <h1 id="title">Designing Scalable Systems</h1>
+          <dl class="facts">
+            <div><dt>Role</dt><dd>Senior Product Designer</dd></div>
+            <div><dt>Time on the product</dt><dd>Nearly three years</dd></div>
+            <div><dt>Platform</dt><dd>SaaS for professional photography studios</dd></div>
+            <div><dt>Experiences</dt><dd>B2C purchase flows and B2B tools</dd></div>
+          </dl>
+        </section>
+        <div class="tile tile--tint hero-art s5"><img src="images/captura-hero-illustration.webp" alt="" width="832" height="832"></div>
+      </div>
+
+      <div class="bento" style="margin-top: var(--gap)">
+        <section class="tile s7" aria-labelledby="context">
+          <h2 id="context">Context</h2>
+          <div class="stack">
+            <p>For nearly three years, I worked as a Senior Product Designer on a complex SaaS platform that supports both customer-facing e-commerce experiences and internal, high-volume operational workflows. The product serves professional photography studios and their customers, spanning B2C purchase experiences and B2B tools used daily at scale.</p>
+            <p>Rather than working on isolated or one-off projects, my role focused on designing and evolving long-lived product systems. Much of the work involved balancing clarity, flexibility, and reliability across a wide range of studio configurations, business rules, and technical constraints.</p>
+            <p>This case study is a curated snapshot of that work, with an emphasis on problem-first thinking and system design.</p>
+          </div>
+        </section>
+        <section class="tile s5" aria-labelledby="role">
+          <h2 id="role">Role and ownership</h2>
+          <div class="stack">
+            <p>I worked as an embedded product designer partnering closely with Product, Engineering, and cross-functional stakeholders. My ownership extended from early problem definition through design, iteration, and delivery.</p>
+            <p>My scope included:</p>
+            <ul class="dots"><li>Designing scalable interaction patterns used across multiple product surfaces</li><li>Defining guardrails that balanced user flexibility with system integrity</li><li>Navigating tradeoffs between automation, control, and safety</li><li>Designing within real technical and operational constraints</li><li>Ensuring accessibility, clarity, and long-term maintainability</li></ul>
+          </div>
+        </section>
+      </div>
+
+      <section aria-labelledby="areas">
+        <div class="section-head"><h2 id="areas">Product areas</h2></div>
+        <div class="bento">
+          <article class="tile area s6" aria-labelledby="b2c">
+            <div class="area__media"><img src="images/captura-shop-mobile.webp" alt="Phone showing a studio shop page of premium print bundles, with promotional prices and badges." width="565" height="868" loading="lazy"></div>
+            <div class="area__body">
+              <h3 id="b2c">E-commerce Experience (B2C)</h3>
+              <p>I worked across multiple areas of the e-commerce platform focused on helping end customers understand value, navigate options, and complete purchases with confidence.</p>
+              <h4>Key focus areas included:</h4>
+              <ul class="dots"><li>Reducing friction in shopping and checkout flows</li><li>Clearly communicating promotions, pricing, and incentives</li><li>Designing flexible systems that adapt to different studio configurations</li><li>Maintaining consistency across cart, checkout, and order summary views</li></ul>
+              <p>These experiences required clarity and trust at moments of decision while supporting significant complexity behind the scenes.</p>
+            </div>
+          </article>
+          <article class="tile area s6" aria-labelledby="b2b">
+            <div class="area__media"><img src="images/captura-dashboard.webp" alt="Studio dashboard with totals for active jobs, price sheets, and orders, and tiles for Jobs, Stages, Price Sheets, Shop, Orders, and Fulfillment." width="837" height="587" loading="lazy"></div>
+            <div class="area__body">
+              <h3 id="b2b">High-Volume Workflow Tools (B2B)</h3>
+              <p>A significant portion of my work focused on internal tools used by studios to manage large volumes of jobs, images, and marketing campaigns, often under tight timelines and operational pressure.</p>
+              <h4>Key focus areas included:</h4>
+              <ul class="dots"><li>Dashboard and table-heavy interfaces optimized for speed and accuracy</li><li>Configuration-driven systems that scale across studios of different sizes</li><li>Improving usability within existing technical constraints</li><li>Preventing errors in workflows that directly impact revenue and delivery</li></ul>
+              <p>These tools prioritized efficiency, predictability, and error prevention over visual simplicity.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="problems">
+        <div class="section-head"><h2 id="problems">Key problem spaces and system solutions</h2></div>
+        
+        <article class="bento" aria-labelledby="problem-1" style="margin-bottom: var(--gap)">
+          <div class="tile problem s6">
+            <h3 id="problem-1">Preventing Missed Actions in High-Volume Workflows</h3>
+            <div class="problem__group"><h4>Problem</h4><p>Studios had a hard time remembering to attach marketing to their jobs. Before this work, a marketing specialist had to alert the studio, and the studio then had to open each marketing campaign and manually press send. There was no way to do it in bulk, which made the process cumbersome and easy to miss at scale.</p></div>
+            <div class="problem__group"><h4>System approach</h4><p class="lead">Instead of relying on reminders alone, I helped design a system that:</p><ul class="dots"><li>Made missing actions visible through contextual filters and dashboards</li><li>Surfaced value and outcomes, not just tasks</li><li>Reduced repetition by supporting repeatable and batch actions</li></ul></div>
+            <div class="problem__group"><h4>Shipped examples</h4><ul class="chips"><li>Marketing Attachment Wizard</li><li>Job-level marketing filters and dashboards</li></ul></div>
+            <p class="outcome">This approach shifted responsibility from user memory to system affordances, which scales more effectively across volume and experience levels.</p>
+          </div>
+          <div class="tile media s6">
+            <figure class="shot"><img src="images/captura-attach-marketing-wizard.webp" alt="Bulk job import screen titled Attach Marketing, with filters for event date and price sheet above a list of selected jobs and a Next button." width="859" height="594" loading="lazy"><figcaption>Marketing Attachment Wizard</figcaption></figure><figure class="shot"><img src="images/captura-marketing-campaigns-table.webp" alt="Marketing campaigns table with an Attach button on each row and a progress notice reading Attaching to Jobs, step 1 of 6." width="859" height="366" loading="lazy"><figcaption>Job-level marketing filters and dashboards</figcaption></figure>
+          </div>
+        </article>
+        <article class="bento flip" aria-labelledby="problem-2" style="margin-bottom: var(--gap)">
+          <div class="tile problem s6">
+            <h3 id="problem-2">Enabling Safe Customization</h3>
+            <div class="problem__group"><h4>Problem</h4><p>Studios needed the ability to make last-minute changes to marketing content. However, unrestricted editing risked breaking layout, deliverability, and long-term maintainability.</p></div>
+            <div class="problem__group"><h4>System approach</h4><p class="lead">I designed a permission based editing marketing campaign editor that:</p><ul class="dots"><li>Explicitly defined editable versus locked components</li><li>Allowed users to inject dynamic shop links</li><li>Added alt text for accessibility and missing images</li><li>Allowed users to preview campaigns in both mobile and desktop view</li></ul></div>
+            <div class="problem__group"><h4>Shipped example</h4><ul class="chips"><li>Campaign Designer with editable templates</li></ul></div>
+            <p class="outcome">This balanced autonomy and safety while avoiding exposure to unnecessary system complexity.</p>
+          </div>
+          <div class="tile media s6">
+            <figure class="shot"><img src="images/captura-campaign-designer.webp" alt="Campaign Designer with a list of email templates on the left, the email content with a spring sale image in the middle, and an Edit Image panel with an alt text field on the right." width="886" height="613" loading="lazy"><figcaption>Campaign Designer with editable templates</figcaption></figure>
+          </div>
+        </article>
+        <article class="bento" aria-labelledby="problem-3" style="margin-bottom: var(--gap)">
+          <div class="tile problem s6">
+            <h3 id="problem-3">Making Incentives and Value Visible at the Right Moment</h3>
+            <div class="problem__group"><h4>Problem</h4><p>Promotional incentives existed within the system but were often invisible or unclear during key decision moments. Studios relied on manual workarounds, and customers struggled to understand what was on sale, for how long, and why it mattered.</p></div>
+            <div class="problem__group"><h4>System approach</h4><p class="lead">I designed a unified promotional pricing system that:</p><ul class="dots"><li>Surfaced incentives directly within the shopping and checkout experience</li><li>Reinforced promotional context without disrupting the flow</li><li>Scaled across products, carts, and order summaries through shared patterns</li></ul></div>
+            <div class="problem__group"><h4>Shipped example</h4><ul class="chips"><li>Product Badges with Crossed-Out Promotional Pricing</li></ul></div>
+            <p class="outcome">This reduced ambiguity for customers and eliminated the need for fragile naming-based workarounds by studios.</p>
+          </div>
+          <div class="tile media s6">
+            <figure class="shot"><img src="images/captura-shop-badges.webp" alt="Shop page with three bundles: Premium Bundle at $225 marked Best Seller, Graduate Bundle at $180 marked 20% Off, and Senior Bundle at $165 marked Limited Time Deal, each with the regular price crossed out." width="795" height="491" loading="lazy"><figcaption>Product Badges with Crossed-Out Promotional Pricing</figcaption></figure><figure class="shot"><img src="images/captura-promo-price-editor.webp" alt="Price sheet editor for the Graduate Bundle with a percentage promotion of 20 percent off, a display badge setting, and a preview showing $180.00 with the regular $225.00 crossed out." width="796" height="466" loading="lazy"></figure>
+          </div>
+        </article>
+        <article class="bento flip" aria-labelledby="problem-4" style="margin-bottom: var(--gap)">
+          <div class="tile problem s6">
+            <h3 id="problem-4">Automating Repetitive Tasks While Preserving Trust</h3>
+            <div class="problem__group"><h4>Problem</h4><p>Manually sorting large volumes of images does not scale. At the same time, automation must remain transparent and controllable to earn user trust.</p></div>
+            <div class="problem__group"><h4>System approach</h4><p class="lead">I helped design an AI assisted workflow that:</p><ul class="dots"><li>Worked within the existing job and sorting flow</li><li>Helped photographers match students and identify students missing data</li><li>Made Commencements and Journey products more useful and effective</li></ul></div>
+            <div class="problem__group"><h4>Shipped example</h4><ul class="chips"><li>Face Match with AI powered image sorting</li></ul></div>
+            <p class="outcome">The design emphasized clarity and user control rather than full automation by default.</p>
+          </div>
+          <div class="tile media s6">
+            <figure class="shot"><img src="images/captura-commencement-tools-menu.webp" alt="Commencement job screen with the Tools menu open, listing Import, Export, Sort, Stages, Capture, and Marketing, above tiles for importing subject data, auto-categorizing by folder, and Face Match." width="859" height="476" loading="lazy"></figure><figure class="shot"><img src="images/captura-face-match-wizard.webp" alt="Face Match setup screen with a reference job selected, a job chosen to pull images from, and a Next button." width="859" height="521" loading="lazy"><figcaption>Face Match with AI powered image sorting</figcaption></figure>
+          </div>
+        </article>
+        <article class="bento" aria-labelledby="problem-5" style="margin-bottom: var(--gap)">
+          <div class="tile problem s6">
+            <h3 id="problem-5">Supporting Flexible Monetization</h3>
+            <div class="problem__group"><h4>Problem</h4><p>Studios wanted multiple ways to sell digital products, either as standalone items or as add ons, without introducing one off flows or fragmented pricing logic.</p></div>
+            <div class="problem__group"><h4>System approach</h4><p class="lead">I designed a configuration driven model that:</p><ul class="dots"><li>Unified digital and physical fulfillment paths</li><li>Preserved downstream reporting and financial integrity</li><li>Allowed future expansion without reworking core workflows</li></ul></div>
+            <div class="problem__group"><h4>Shipped example</h4><ul class="chips"><li>Custom Designs offered as digital downloads</li></ul></div>
+            <p class="outcome">This enabled new monetization paths while keeping the overall system cohesive.</p>
+          </div>
+          <div class="tile media s6">
+            <figure class="shot"><img src="images/captura-fulfillment-dropdown.webp" alt="Price sheet editor for a package with the Edit Fulfillment dropdown open, listing None, Digital Download, Large Lab, Medium Lab, and AI Lab." width="859" height="376" loading="lazy"></figure><figure class="shot"><img src="images/captura-digital-download-selected.webp" alt="Price sheet editor after choosing Digital Download as the fulfillment, with the package now labeled Custom Designs, Digital Download." width="859" height="409" loading="lazy"><figcaption>Custom Designs offered as digital downloads</figcaption></figure>
+          </div>
+        </article>
+      </section>
+
+      <div class="bento" style="margin-top: 40px">
+        <section class="tile tile--night s7" aria-labelledby="think">
+          <h2 id="think">How I think about design</h2>
+          <div class="stack">
+            <p>I approach product design as system design.</p>
+            <p>I focus on:</p>
+            <ul class="dots"><li>Building workflows that make it hard to do the wrong thing</li><li>Reducing cognitive load through structure and clear defaults</li><li>Designing for edge cases and failure states early</li><li>Long-term maintainability over short-term completeness</li><li>Treating accessibility as a foundational constraint, not an afterthought</li></ul>
+            <p>My goal is to design products that scale with both users and the business over time.</p>
+          </div>
+        </section>
+        <section class="tile tile--wine closing s5" aria-labelledby="closing">
+          <h2 id="closing">Closing remarks</h2>
+          <p>This case study represents a curated snapshot of my work designing scalable systems across both B2C and B2B contexts. While not exhaustive, it reflects how I approach complex, real-world product problems where clarity, scale, and trust are critical.</p>
+          <img src="images/friends-selfie.webp" alt="" width="1000" height="667" loading="lazy">
+        </section>
+      </div>
+
+      <section class="tile thanks" style="margin-top: var(--gap)" aria-labelledby="thanks">
+        <h2 id="thanks">Thank you!</h2>
+        <div class="actions">
+          <a class="btn btn--solid" href="index.html#work"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8H2M7 3L2 8l5 5"/></svg>Back to all work</a>
+          <a class="btn" href="https://www.behance.net/darrienstaton1/" target="_blank" rel="noopener noreferrer">More work on Behance<span class="sr-only"> (opens in a new tab)</span><svg class="out" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2026 Darrien Staton</footer>
+  </div>
+</body>
+</html>
