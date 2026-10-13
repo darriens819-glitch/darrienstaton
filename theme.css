@@ -1,0 +1,184 @@
+/* Color themes and the theme switcher.
+   Light is the default token set. Dark applies when the visitor picks it,
+   or when they pick Auto (no data-theme) and their device prefers dark. */
+
+:root {
+  color-scheme: light;
+  --bg: #F1F3F6;
+  --surface: #FFFFFF;
+  --ink: #12161C;
+  --muted: #475064;
+  --line: #DADFE6;
+  --accent: #1F4FD8;
+  --chip: #EAEEF4;
+  --chip-hover: #DFE5EE;
+  --earth-red: #7C1B2A;
+  --on-red: #FAF1EA;
+  --mark: #7C1B2A;
+  --rose-soft: #F0DCDD;
+  --rose-ink: #5E0E1B;
+  --rose-soft-hover: #E7C8CB;
+  --rose-mid: #E2BCBF;
+  --rose-mid-ink: #4F0C18;
+  --rose-mid-hover: #D8ABAF;
+  --night-bg: #12161C;
+  --night-line: #12161C;
+  --night-ink: #FFFFFF;
+  --tint-bg: #E7EDFF;
+  --tint-line: #D3DDFB;
+  --solid-bg: #12161C;
+  --solid-fg: #FFFFFF;
+  --board-bg: #FBFBFD;
+  --board-dot: #D5DBE5;
+  --ring: #FFFFFF;
+  --shadow: rgba(18, 22, 28, .35);
+  --brand-genesis: #0E4467;
+  --paper: transparent;
+}
+
+/* Dark tokens: kept in one place, applied by the two rules below */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0D1015;
+    --surface: #161A21;
+    --ink: #EDF0F5;
+    --muted: #A9B2C1;
+    --line: #2A313C;
+    --accent: #8AA7FF;
+    --chip: #1E242E;
+    --chip-hover: #29313D;
+    --earth-red: #8A2133;
+    --mark: #E6A9B0;
+    --rose-soft: #3A1E26;
+    --rose-ink: #F4D3D7;
+    --rose-soft-hover: #47252F;
+    --rose-mid: #5C2C36;
+    --rose-mid-ink: #F8DDE0;
+    --rose-mid-hover: #6B3640;
+    --night-bg: #1F2838;
+    --night-line: #2D3850;
+    --tint-bg: #172037;
+    --tint-line: #26335A;
+    --solid-bg: #EDF0F5;
+    --solid-fg: #12161C;
+    --board-bg: #11151B;
+    --board-dot: #262D38;
+    --ring: #2B3340;
+    --shadow: rgba(0, 0, 0, .6);
+    --brand-genesis: #6FB3E0;
+    --paper: #F3F5F8;
+  }
+  :root:not([data-theme="light"]) .site-header .logo img { filter: invert(1); }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0D1015;
+  --surface: #161A21;
+  --ink: #EDF0F5;
+  --muted: #A9B2C1;
+  --line: #2A313C;
+  --accent: #8AA7FF;
+  --chip: #1E242E;
+  --chip-hover: #29313D;
+  --earth-red: #8A2133;
+  --mark: #E6A9B0;
+  --rose-soft: #3A1E26;
+  --rose-ink: #F4D3D7;
+  --rose-soft-hover: #47252F;
+  --rose-mid: #5C2C36;
+  --rose-mid-ink: #F8DDE0;
+  --rose-mid-hover: #6B3640;
+  --night-bg: #1F2838;
+  --night-line: #2D3850;
+  --tint-bg: #172037;
+  --tint-line: #26335A;
+  --solid-bg: #EDF0F5;
+  --solid-fg: #12161C;
+  --board-bg: #11151B;
+  --board-dot: #262D38;
+  --ring: #2B3340;
+  --shadow: rgba(0, 0, 0, .6);
+  --brand-genesis: #6FB3E0;
+  --paper: #F3F5F8;
+}
+:root[data-theme="dark"] .site-header .logo img { filter: invert(1); }
+
+/* Annotated screens drawn for a light page get a light backing in dark mode */
+.shot--paper img { background: var(--paper); }
+
+/* Smooth color change, only while switching (added briefly by theme.js) */
+html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after {
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease, fill .35s ease, stroke .35s ease !important;
+}
+
+/* Header layout with the switcher */
+.site-header { gap: 12px; flex-wrap: wrap; }
+.site-header nav { margin-left: auto; }
+
+/* Theme menu: one round button that opens a small list */
+.theme-menu { display: none; position: relative; z-index: 20; }
+.js .theme-menu { display: block; }
+.theme-menu__btn {
+  display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px 0 13px;
+  border-radius: 999px; border: 1px solid var(--line); background: var(--chip); color: var(--ink);
+  font: inherit; font-size: .95rem; font-weight: 600; cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.theme-menu__label { line-height: 1; }
+.theme-menu__btn svg.theme-menu__chev { display: block; width: 14px; height: 14px; margin-left: 2px; transition: transform .25s ease; }
+.theme-menu__btn[aria-expanded="true"] .theme-menu__chev { transform: rotate(180deg); }
+.theme-menu__btn:hover { border-color: var(--ink); transform: translateY(-2px); }
+.theme-menu__btn[aria-expanded="true"] { border-color: var(--ink); background: var(--surface); }
+.theme-menu__btn:focus-visible, .theme-menu__list button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.theme-menu svg { width: 20px; height: 20px; flex: none; }
+
+/* the button shows only the icon for the active mode */
+.theme-menu__btn svg { display: none; }
+.theme-menu[data-mode="light"] .theme-menu__btn .i-sun,
+.theme-menu[data-mode="auto"] .theme-menu__btn .i-auto,
+.theme-menu[data-mode="dark"] .theme-menu__btn .i-moon { display: block; }
+.theme-menu.is-switching[data-mode="light"] .theme-menu__btn .i-sun { animation: sun-spin .6s ease; }
+.theme-menu.is-switching[data-mode="dark"] .theme-menu__btn .i-moon { animation: moon-tilt .6s ease; }
+.theme-menu.is-switching[data-mode="auto"] .theme-menu__btn .i-auto { animation: auto-flip .6s ease; }
+@keyframes sun-spin { from { transform: rotate(-120deg) scale(.6); } to { transform: none; } }
+@keyframes moon-tilt { from { transform: rotate(-50deg) scale(.6); } to { transform: none; } }
+@keyframes auto-flip { from { transform: rotate(180deg) scale(.6); } to { transform: none; } }
+
+.theme-menu__list {
+  position: absolute; top: calc(100% + 10px); right: 0; min-width: 184px; margin: 0; padding: 6px;
+  list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+  box-shadow: 0 18px 36px -14px var(--shadow);
+  transform-origin: top right; animation: menu-in .18s ease;
+}
+.theme-menu__list[hidden] { display: none; }
+@keyframes menu-in { from { opacity: 0; transform: translateY(-6px) scale(.96); } to { opacity: 1; transform: none; } }
+.theme-menu__list button {
+  display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 12px;
+  border: 0; border-radius: 12px; background: none; color: var(--ink); font: inherit; font-weight: 500;
+  text-align: left; cursor: pointer; transition: background-color .15s ease;
+}
+.theme-menu__list button:hover { background: var(--chip); }
+.theme-menu__list button[aria-pressed="true"] { font-weight: 700; }
+.theme-menu__check { width: 16px; height: 16px; margin-left: auto; opacity: 0; transform: scale(.5); transition: opacity .2s ease, transform .25s cubic-bezier(.3, 1.6, .5, 1); }
+.theme-menu__list button[aria-pressed="true"] .theme-menu__check { opacity: 1; transform: none; }
+
+@media (max-width: 720px) {
+  .site-header .logo { order: 1; }
+  .theme-menu { order: 2; margin-left: auto; }
+  .site-header nav { order: 3; flex-basis: 100%; margin-left: -11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-menu__btn .i-sun, .theme-menu__btn .i-moon, .theme-menu__btn .i-auto { animation: none !important; }
+  .theme-menu__list { animation: none; }
+  .theme-menu__btn:hover { transform: none; }
+  .theme-menu__check, .theme-menu__chev { transition: none !important; }
+  html.theme-fade, html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after { transition: none !important; }
+}
+
+/* Four nav links need a little less padding on narrow phones */
+@media (max-width: 560px) {
+  .site-header nav ul { flex-wrap: wrap; gap: 0; }
+  .site-header nav a { padding: 10px 9px; }
+  .site-header nav { margin-left: -9px; }
+}

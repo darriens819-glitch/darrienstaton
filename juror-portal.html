@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Genesis Juror Portal | Darrien Staton</title>
   <meta name="description" content="Case study by Darrien Staton, Senior Product Designer: redesigning the public-facing Genesis Juror Portal for clarity, accessibility, and mobile use.">
-  <meta name="theme-color" content="#F1F3F6">
+  <meta name="theme-color" content="#F1F3F6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0D1015" media="(prefers-color-scheme: dark)">
+  <script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}})()</script>
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="case.css">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
   <a class="skip" href="#main">Skip to the case study</a>
@@ -18,8 +21,17 @@
     <header class="site-header">
       <a class="logo" href="index.html" aria-label="Darrien Staton, home"><img src="images/dare-logo.png" alt="Dare"></a>
       <nav aria-label="Main"><ul>
-        <li><a href="index.html#work">Work</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#connect">Connect</a></li>
+        <li><a href="index.html#work">Work</a></li><li><a href="index.html#writing">Writing</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#connect">Connect</a></li>
       </ul></nav>
+      <div class="theme-menu" data-mode="auto">
+        <button type="button" class="theme-menu__btn" id="theme-btn" aria-expanded="false" aria-controls="theme-list" aria-label="Theme: Auto"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><span class="theme-menu__label">Theme</span><svg class="theme-menu__chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6"/></svg></button>
+        <ul class="theme-menu__list" id="theme-list" role="group" aria-label="Theme" hidden>
+          <li><button type="button" data-mode="light" aria-pressed="false"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>Light</span><svg class="theme-menu__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></button></li>
+          <li><button type="button" data-mode="auto" aria-pressed="false"><svg class="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg><span>Auto</span><svg class="theme-menu__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></button></li>
+          <li><button type="button" data-mode="dark" aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><span>Dark</span><svg class="theme-menu__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></button></li>
+        </ul>
+      </div>
+      <p id="theme-status" class="sr-only" role="status" aria-live="polite"></p>
     </header>
     <main id="main">
       <a class="back" href="index.html#work"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8H2M7 3L2 8l5 5"/></svg>All work</a>
@@ -63,9 +75,9 @@
           <div class="tile s12"><div class="stack"><p>With a clear understanding of the user flow and key pain points, I moved into the design phase with a focus on simplicity, clarity, and accessibility. I began by sketching low-fidelity wireframes to explore layout options and content hierarchy, keeping the user&#x27;s journey front and center. From there, I developed high-fidelity mockups that applied updated visual styles aligned with Genesis branding, while allowing room for white-label customization.</p><p>Throughout the process, I prioritized clean navigation, reduced cognitive load, and responsive design to ensure a smooth experience across devices. Each screen was carefully crafted to help jurors complete tasks confidently and without confusion.</p></div></div>
           <div class="tile media s6"><figure class="shot shot--framed "><img src="images/genesis-wireframes.webp" alt="Low fidelity wireframes of the welcome, login, and juror dashboard screens in grayscale, with placeholder logos." width="1600" height="873" loading="lazy"><figcaption>Low-fidelity wireframes</figcaption></figure></div>
           <div class="tile media s6"><figure class="shot shot--framed "><img src="images/genesis-hifi-desktop.webp" alt="High fidelity mockups of the welcome, login, and juror dashboard screens in Genesis blue and teal." width="1600" height="882" loading="lazy"><figcaption>High-fidelity mockups</figcaption></figure></div>
-          <div class="tile media s12"><figure class="shot shot--framed "><img src="images/genesis-welcome-annotated.webp" alt="Welcome screen with callouts: logo and navigation, seal and court name, a Continue to Juror Portal button, welcome text, and copyright." width="1600" height="662" loading="lazy"><figcaption>Welcome screen</figcaption></figure></div>
-          <div class="tile media s12"><figure class="shot shot--framed "><img src="images/genesis-login-annotated.webp" alt="Login screen with callouts: logo and navigation, helper text, input fields for Juror ID, ESignature, and date of birth, seal and court name, an info block, buttons, and copyright." width="1600" height="673" loading="lazy"><figcaption>Login screen</figcaption></figure></div>
-          <div class="tile media s12"><figure class="shot shot--framed "><img src="images/genesis-dashboard-annotated.webp" alt="Juror dashboard with callouts: court name and navigation, instructions, My Actions, juror ID card, contact settings, address, chat support, documents, and footer." width="1600" height="861" loading="lazy"><figcaption>Juror dashboard</figcaption></figure></div>
+          <div class="tile media s12"><figure class="shot shot--framed shot--paper"><img src="images/genesis-welcome-annotated.webp" alt="Welcome screen with callouts: logo and navigation, seal and court name, a Continue to Juror Portal button, welcome text, and copyright." width="1600" height="662" loading="lazy"><figcaption>Welcome screen</figcaption></figure></div>
+          <div class="tile media s12"><figure class="shot shot--framed shot--paper"><img src="images/genesis-login-annotated.webp" alt="Login screen with callouts: logo and navigation, helper text, input fields for Juror ID, ESignature, and date of birth, seal and court name, an info block, buttons, and copyright." width="1600" height="673" loading="lazy"><figcaption>Login screen</figcaption></figure></div>
+          <div class="tile media s12"><figure class="shot shot--framed shot--paper"><img src="images/genesis-dashboard-annotated.webp" alt="Juror dashboard with callouts: court name and navigation, instructions, My Actions, juror ID card, contact settings, address, chat support, documents, and footer." width="1600" height="861" loading="lazy"><figcaption>Juror dashboard</figcaption></figure></div>
           <div class="tile media s12"><figure class="shot shot--framed "><img src="images/genesis-mobile-form.webp" alt="Five phone screens showing a long Complete form questionnaire with text fields, dropdowns, radio buttons, a remarks box, and buttons to save as draft or review answers." width="1700" height="635" loading="lazy"><figcaption>Questionnaire on mobile</figcaption></figure></div>
           <div class="tile media s12"><div class="pair pair--rev">
             <figure class="shot shot--framed shot--tall"><img src="images/genesis-welcome-mobile.webp" alt="Welcome screen on a phone with the court seal, a Continue to Juror Portal button, and welcome text." width="638" height="1279" loading="lazy"></figure>
@@ -121,5 +133,6 @@
     </main>
     <footer>&copy; 2026 Darrien Staton</footer>
   </div>
+  <script src="theme.js" defer></script>
 </body>
 </html>
