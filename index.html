@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Darrien Staton</title>
   <meta name="description" content="Darrien Staton | Product Designer">
-  <meta name="theme-color" content="#F1F3F6">
+  <meta name="theme-color" content="#F1F3F6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0D1015" media="(prefers-color-scheme: dark)">
+  <script src="theme.js" defer></script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.setAttribute('data-theme',t)}catch(e){}})()</script>
   <meta property="og:title" content="Darrien Staton">
   <meta property="og:description" content="Darrien Staton | Product Designer">
   <meta property="og:type" content="website">
@@ -16,15 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #F1F3F6;
-      --surface: #FFFFFF;
-      --ink: #12161C;
-      --muted: #475064;
-      --line: #DADFE6;
-      --accent: #1F4FD8;
-      --earth-red: #7C1B2A;
-      --on-red: #FAF1EA;
-      --chip: #EAEEF4;
+      /* color tokens live in theme.css */
       --radius: 22px;
       --gap: 16px;
       --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
@@ -50,7 +45,7 @@
 
     .skip {
       position: absolute; left: 16px; top: -64px; z-index: 10;
-      background: var(--ink); color: #fff; padding: 12px 18px; border-radius: 12px;
+      background: var(--solid-bg); color: var(--solid-fg); padding: 12px 18px; border-radius: 12px;
       font-weight: 600; text-decoration: none;
     }
     .skip:focus { top: 16px; }
@@ -85,7 +80,7 @@
       padding: 32px;
     }
     .tile h3 { font-size: 1.5rem; margin-bottom: 18px; }
-    .tile--night { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .tile--night { background: var(--night-bg); border-color: var(--night-line); color: var(--night-ink); }
     .tile--accent { background: var(--earth-red); border-color: var(--earth-red); color: var(--on-red); }
     .tile--accent p { font-weight: 500; }
 
@@ -103,17 +98,17 @@
     .btn svg { width: 16px; height: 16px; transition: transform .2s ease; }
     .btn:hover { transform: translateY(-3px); }
     .btn:hover svg { transform: translate(2px, -2px); }
-    .btn--solid { background: var(--ink); color: #fff; }
+    .btn--solid { background: var(--solid-bg); color: var(--solid-fg); border-color: var(--solid-bg); }
     .btn--solid:hover svg.down { transform: translateY(3px); }
-    .btn--light { background: var(--on-red); color: var(--ink); border-color: var(--on-red); }
+    .btn--light { background: var(--on-red); color: #12161C; border-color: var(--on-red); }
 
     /* portrait */
     .fun { display: flex; flex-direction: column; gap: 14px; }
     .fun__art { width: 100%; height: auto; margin-top: auto; }
-    .portrait { display: grid; place-items: center; padding: 24px; background: var(--chip); border-color: var(--chip); transform: rotate(-1.5deg); transition: transform .35s ease; }
-    .portrait:hover { transform: rotate(0deg) translateY(-4px); }
+    .portrait { display: grid; place-items: center; padding: 24px; background: var(--chip); border-color: var(--chip); transition: transform .35s ease; }
+    .portrait:hover { transform: rotate(-1.5deg) translateY(-4px); }
     /* shown at about half the file's pixel size, so it stays sharp on high-density screens */
-    .portrait img { width: min(100%, 220px); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 5px solid #fff; box-shadow: 0 10px 20px -10px rgba(18,22,28,.35); }
+    .portrait img { width: min(100%, 220px); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 5px solid var(--ring); box-shadow: 0 10px 20px -10px var(--shadow); }
 
     /* section headings */
     .section-head { margin: 56px 0 20px; }
@@ -121,11 +116,11 @@
 
     /* case study tiles */
     .case { padding: 0; overflow: hidden; display: flex; flex-direction: column; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
-    .case:hover { transform: translateY(-4px); border-color: var(--brand); box-shadow: 0 14px 30px -14px rgba(18,22,28,.35); }
+    .case:hover { transform: translateY(-4px); border-color: var(--brand); box-shadow: 0 14px 30px -14px var(--shadow); }
     .case--dss { --brand: #1A56FF; }
     .case--dooable { --brand: #F42D58; }
-    .case--genesis { --brand: #0E4467; }
-    .case__media { overflow: hidden; background: var(--chip); }
+    .case--genesis { --brand: var(--brand-genesis); }
+    .case__media { overflow: hidden; background: var(--chip); border-bottom: 1px solid var(--line); }
     .case__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; transition: transform .5s ease; }
     .case:hover .case__media img { transform: scale(1.04); }
     .case__body { padding: 24px 28px 28px; }
@@ -138,7 +133,7 @@
     .stretched { text-decoration: none; }
     .stretched::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
     .stretched:focus-visible { outline: none; }
-    .stretched:focus-visible::after { box-shadow: inset 0 0 0 4px var(--accent), inset 0 0 0 7px #fff; }
+    .stretched:focus-visible::after { box-shadow: inset 0 0 0 4px var(--accent), inset 0 0 0 7px var(--surface); }
 
     /* process */
     .steps { display: grid; gap: 16px; counter-reset: step; }
@@ -146,7 +141,7 @@
     .steps li::before {
       content: counter(step);
       display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%;
-      background: var(--ink); color: #fff; font-family: var(--display); font-weight: 700;
+      background: var(--solid-bg); color: var(--solid-fg); font-family: var(--display); font-weight: 700;
     }
     .steps strong { display: block; font-family: var(--display); font-size: 1.1rem; }
     .steps span { color: var(--muted); }
@@ -160,12 +155,21 @@
       padding: 9px 16px; border-radius: 999px; background: var(--chip); font-weight: 500;
       transition: transform .2s ease, background .2s ease;
     }
-    .chips li:hover { transform: translateY(-3px) rotate(-2deg); background: #dfe5ee; }
+    .chips li:hover { transform: translateY(-3px) rotate(-2deg); background: var(--chip-hover); }
     /* a little color on some chips: solid wine, soft rose, or the default gray */
-    .chips li:nth-child(2), .chips li:nth-child(6), .chips li:nth-child(9) { background: #E2BCBF; color: #4F0C18; }
-    .chips li:nth-child(2):hover, .chips li:nth-child(6):hover, .chips li:nth-child(9):hover { background: #D8ABAF; }
-    .chips li:nth-child(3), .chips li:nth-child(8), .chips li:nth-child(10) { background: #F0DCDD; color: #5E0E1B; }
-    .chips li:nth-child(3):hover, .chips li:nth-child(8):hover, .chips li:nth-child(10):hover { background: #E7C8CB; }
+    .chips li:nth-child(2), .chips li:nth-child(6), .chips li:nth-child(9) { background: var(--rose-mid); color: var(--rose-mid-ink); }
+    .chips li:nth-child(2):hover, .chips li:nth-child(6):hover, .chips li:nth-child(9):hover { background: var(--rose-mid-hover); }
+    .chips li:nth-child(3), .chips li:nth-child(8), .chips li:nth-child(10) { background: var(--rose-soft); color: var(--rose-ink); }
+    .chips li:nth-child(3):hover, .chips li:nth-child(8):hover, .chips li:nth-child(10):hover { background: var(--rose-soft-hover); }
+    /* books: small cover on the left, title and author on the right */
+    .books { list-style: none; margin: 0; padding: 0; }
+    .book { display: flex; align-items: center; gap: 14px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+    .book:last-child { border-bottom: 0; }
+    .book__cover { position: relative; flex: none; width: 48px; aspect-ratio: 2 / 3; border-radius: 4px; overflow: hidden; background: var(--chip); border: 1px solid var(--line); box-shadow: 0 4px 10px -6px var(--shadow); }
+    .book__cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .book__text { min-width: 0; }
+    .book__title { display: block; font-weight: 600; line-height: 1.3; }
+    .book__author { display: block; margin-top: 2px; font-size: .9rem; color: var(--muted); }
     .linklist li { padding: 9px 0; border-bottom: 1px solid var(--line); }
     .linklist li:last-child { border-bottom: 0; }
     .linklist a {
@@ -175,6 +179,26 @@
     .linklist a:hover { text-decoration: underline; text-underline-offset: 4px; }
     .linklist svg { width: 14px; height: 14px; flex: none; transition: transform .2s ease; }
     .linklist a:hover svg { transform: translate(2px, -2px); }
+
+    /* writing */
+    .writing { display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+    .writing h3 { margin-bottom: 0; }
+    .writing p { font-size: 1.1rem; }
+    .writing .btn { padding: .6rem 1.1rem; }
+    .writing .btn:not(.btn--light) { border-color: var(--on-red); color: var(--on-red); }
+    .posts__list li + li { border-top: 1px solid var(--line); }
+    .posts__list a {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; align-items: start;
+      padding: 18px 0; text-decoration: none;
+    }
+    .posts__list li:first-child a { padding-top: 4px; }
+    .posts__list li:last-child a { padding-bottom: 0; }
+    .post__meta { grid-column: 1; font-size: .9rem; color: var(--muted); }
+    .post__title { grid-column: 1; font-family: var(--display); font-size: 1.35rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+    .post__sub { grid-column: 1; color: var(--muted); }
+    .posts__list svg { grid-column: 2; grid-row: 1 / span 3; align-self: center; width: 18px; height: 18px; transition: transform .2s ease; }
+    .posts__list a:hover .post__title { text-decoration: underline; text-underline-offset: 4px; }
+    .posts__list a:hover svg { transform: translate(3px, -3px); }
 
     iframe { display: block; width: 100%; height: 352px; border: 0; border-radius: 14px; }
     .spotify-link { margin-top: 16px; }
@@ -197,7 +221,7 @@
     @media (max-width: 960px) {
       .s3, .s4, .s5, .s6, .s7, .s8, .s9 { grid-column: span 12; }
       .tall { grid-row: auto; }
-      .portrait { order: -1; padding: 20px; transform: rotate(-1deg); }
+      .portrait { order: -1; padding: 20px; }
       .portrait img { width: 180px; height: auto; }
       .intro { padding: 32px 28px; }
     }
@@ -219,9 +243,11 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; animation: none !important; }
       .portrait, .portrait:hover { transform: none; }
+      .posts__list a:hover svg { transform: none; }
       .case:hover, .btn:hover, .chips li:hover, .site-header nav a:hover { transform: none; }
     }
   </style>
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
   <a class="skip" href="#work">Skip to selected work</a>
@@ -232,10 +258,20 @@
       <nav aria-label="Main">
         <ul>
           <li><a href="#work">Work</a></li>
+          <li><a href="#writing">Writing</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#connect">Connect</a></li>
         </ul>
       </nav>
+      <div class="theme-menu" data-mode="auto">
+        <button type="button" class="theme-menu__btn" id="theme-btn" aria-expanded="false" aria-controls="theme-list" aria-label="Theme: Auto"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><span class="theme-menu__label">Theme</span><svg class="theme-menu__chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6"/></svg></button>
+        <ul class="theme-menu__list" id="theme-list" role="group" aria-label="Theme" hidden>
+          <li><button type="button" data-mode="light" aria-pressed="false"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>Light</span><svg class="theme-menu__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></button></li>
+          <li><button type="button" data-mode="auto" aria-pressed="false"><svg class="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg><span>Auto</span><svg class="theme-menu__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></button></li>
+          <li><button type="button" data-mode="dark" aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg><span>Dark</span><svg class="theme-menu__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.5"/></svg></button></li>
+        </ul>
+      </div>
+      <p id="theme-status" class="sr-only" role="status" aria-live="polite"></p>
     </header>
 
     <main id="top">
@@ -301,6 +337,35 @@
         </div>
       </section>
 
+      <section id="writing" aria-labelledby="writing-title">
+        <div class="section-head"><h2 id="writing-title">Writing</h2></div>
+        <div class="bento">
+          <div class="tile tile--accent writing s5">
+            <h3 id="newsletter-title">Industry Rants</h3>
+            <p>A senior product designer's honest take on the industry: AI, career, and design critique, all written by me.</p>
+            <div class="actions">
+              <a class="btn btn--light" href="https://darrienstaton.substack.com/" target="_blank" rel="noopener noreferrer">Read the newsletter<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a>
+              <a class="btn" href="https://darrienstaton.substack.com/subscribe" target="_blank" rel="noopener noreferrer">Subscribe<span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg></a>
+            </div>
+          </div>
+          <section class="tile posts s7" aria-labelledby="posts-title">
+            <h3 id="posts-title">Recent posts</h3>
+            <ul class="posts__list">
+            <li><a href="https://darrienstaton.substack.com/p/if-taste-is-the-new-skill-how-do" target="_blank" rel="noopener noreferrer">
+              <span class="post__meta">Oct 5, 2026</span>
+              <span class="post__title">If taste is the new skill, how do you build it?</span>
+              <span class="post__sub">Six things I actually do to build taste as a designer.</span><span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg>
+            </a></li>
+            <li><a href="https://darrienstaton.substack.com/p/im-going-to-miss-being-a-pixel-pusher" target="_blank" rel="noopener noreferrer">
+              <span class="post__meta">Sep 28, 2026</span>
+              <span class="post__title">I'm Going to Miss Being a Pixel Pusher</span>
+              <span class="post__sub">What AI-assisted design is teaching me about taste, judgment, and the future of UX</span><span class="sr-only"> (opens in a new tab)</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h8v8M13 3L3 13"/></svg>
+            </a></li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
       <section id="about" aria-labelledby="about-title">
         <div class="section-head"><h2 id="about-title">More about me</h2></div>
         <div class="bento">
@@ -309,10 +374,10 @@
             <h3 id="process-title">Design process</h3>
             <p style="margin-bottom:22px">My process is grounded in curiosity: I dig into the why, design thoughtfully, and collaborate closely to make sure what we ship truly works for users.</p>
             <ol class="steps">
-              <li><div><strong>Understand</strong><span>Explore the problem, its sources, and who it affects.</span></div></li>
+              <li><div><strong>Understand</strong><span>Define the problem, its sources, and who it affects.</span></div></li>
               <li><div><strong>Explore</strong><span>Research patterns and spark solution ideas.</span></div></li>
-              <li><div><strong>Design</strong><span>Create, test, and refine thoughtful solutions.</span></div></li>
-              <li><div><strong>Deliver</strong><span>Ensure clean handoff and support development.</span></div></li>
+              <li><div><strong>Design</strong><span>Create and refine accessible solutions that scale.</span></div></li>
+              <li><div><strong>Deliver</strong><span>Prep tickets and QA, then help build and ship.</span></div></li>
               <li><div><strong>Learn</strong><span>Gather feedback and monitor real-world impact.</span></div></li>
             </ol>
           </section>
@@ -325,12 +390,13 @@
 
           <section class="tile s4" aria-labelledby="books-title">
             <h3 id="books-title">Books I recommend</h3>
-            <ul class="plain">
-              <li>The Design of Everyday Things by Don Norman</li>
-              <li>Don't Make Me Think by Steve Krug</li>
-              <li>Draplin Design Co.: Pretty Much Everything by Aaron Draplin</li>
-              <li>Laws of UX by Jon Yablonski</li>
-              <li>Reality Is Broken by Jane McGonigal</li>
+            <!-- To swap a book: change the title and author, then save the cover as images/books/<same-name>.webp (any 2:3 image). Until a cover exists, an empty gray box shows. -->
+            <ul class="books">
+              <li class="book"><div class="book__cover"><img src="images/books/design-of-everyday-things.webp" alt="" loading="lazy" onerror="this.remove()"></div><span class="book__text"><span class="book__title">The Design of Everyday Things</span><span class="book__author"><span class="sr-only">by </span>Don Norman</span></span></li>
+              <li class="book"><div class="book__cover"><img src="images/books/dont-make-me-think.webp" alt="" loading="lazy" onerror="this.remove()"></div><span class="book__text"><span class="book__title">Don't Make Me Think</span><span class="book__author"><span class="sr-only">by </span>Steve Krug</span></span></li>
+              <li class="book"><div class="book__cover"><img src="images/books/draplin-design-co.webp" alt="" loading="lazy" onerror="this.remove()"></div><span class="book__text"><span class="book__title">Draplin Design Co.</span><span class="book__author"><span class="sr-only">by </span>Aaron Draplin</span></span></li>
+              <li class="book"><div class="book__cover"><img src="images/books/laws-of-ux.webp" alt="" loading="lazy" onerror="this.remove()"></div><span class="book__text"><span class="book__title">Laws of UX</span><span class="book__author"><span class="sr-only">by </span>Jon Yablonski</span></span></li>
+              <li class="book"><div class="book__cover"><img src="images/books/reality-is-broken.webp" alt="" loading="lazy" onerror="this.remove()"></div><span class="book__text"><span class="book__title">Reality Is Broken</span><span class="book__author"><span class="sr-only">by </span>Jane McGonigal</span></span></li>
             </ul>
           </section>
 
